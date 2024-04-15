@@ -13,8 +13,5 @@ router.get("/register", viewsController.renderRegister);
 router.get("/realtimeproducts", checkUserRole(['admin']), viewsController.renderRealTimeProducts);
 router.get("/chat", checkUserRole(['usuario']) ,viewsController.renderChat);
 router.get("/", viewsController.renderIndex);
-router.get("/disconect", viewsController.renderDisconect);
-
-/*router.get("/", passport.authenticate("jwt", { session: false }), viewsController.renderIndex.bind(viewsController));*/
 
 module.exports = router;

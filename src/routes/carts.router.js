@@ -2,29 +2,25 @@ const express = require("express");
 const router = express.Router();
 const CartController = require("../controllers/cart.Controller.js");
 const cartController = new CartController();
+const authMiddleware = require("../middleware/authmiddleware.js");
 
-// Rutas
+router.use(authMiddleware);
 
-// Agregar Carrito
 router.post("/", (req, res) => cartController.crearCarrito(req, res));
 
-// Obtener Carritos
-router.get("/:cartId", (req, res) => cartController.obtenerCarrito(req, res));
+router.get("/:cid", (req, res) => cartController.obtenerCarrito(req, res));
 
-// Agregar productos a varios carritos diferentes
-router.post("/:cartId/product/:pid", (req, res) => cartController.agregarProductoAlCarrito(req, res));
+router.post("/:cid/product/:pid", (req, res) => cartController.agregarProductoAlCarrito(req, res));
 
-// Eliminar un producto específico de un carrito
-router.delete('/:cartId/product/:pid', (req, res) => cartController.eliminarProductoDelCarrito(req, res));
+router.delete('/:cid/product/:pid', (req, res) => cartController.eliminarProductoDelCarrito(req, res));
 
-// Actualizar productos del carrito
 router.put('/:cid', (req, res) => cartController.actualizarCarrito(req, res));
 
-// Actualizar las cantidades de productos
 router.put('/:cid/product/:pid', (req, res) => cartController.actualizarCantidadDeProducto(req, res));
 
-// Vaciar carrito
-router.delete('/:cartId', (req, res) => cartController.vaciarCarrito(req, res));
+router.delete('/:cid', (req, res) => cartController.vaciarCarrito(req, res));
+
+router.post('/:cid/purchase', (req, res)=> cartController.finalizarCompra(req, res));
 
 module.exports = router;
 

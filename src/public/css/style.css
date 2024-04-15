@@ -81,7 +81,7 @@ h1 {
 /*Login de Usuarios*/
 /* Estilos para el contenedor del formulario */
 .formLogin {
-    width: 400px; 
+    width: 450px; 
     margin: 0 auto; 
     padding: 1rem;
     border: 1px solid #ccc;
@@ -338,4 +338,18 @@ p {
   margin-top: 10px; 
   font-size: 16px; 
   color: #333; 
+}
+
+.nav-redirect{
+  margin: 10px;
+  color: #141414;
+  border: #141414;
+  box-shadow: #f90707;
+} 
+.nav-redirect:hover{
+  color: #f8f5f5;
+} 
+.box-redirect{
+  border: #141414;
+  box-shadow: #f90707;
 }

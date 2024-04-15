@@ -98,19 +98,11 @@ class UserController {
     }
 
     async admin(req, res) {
-        if (req.user.user.role !== "admin") {
+        if (req.user.role !== "admin") {
             return res.status(403).send("Acceso denegado");
         }
         res.render("admin");
     }
-
-    async disconect(req, res) {
-        // Renderizar la vista logout.handlebars
-        res.render("disconect");
-    
-        // Ejecutar el método logout del controlador de usuario para destruir la sesión JWT
-        await userController.disconect(req, res);
-    };
 }
 
 module.exports = UserController;

@@ -4,21 +4,14 @@ const ProductController = require("../controllers/product.Controller.js");
 const productController = new ProductController();
 
 
-// Rutas:
-
-// Ver todos los productos
 router.get("/", (req, res)=> productController.getProducts(req, res));
 
-// Ver Producto por ID
 router.get("/:pid", (req, res)=> productController.getProductById(req, res));
 
-// Agregar Producto
 router.post("/", (req, res)=> productController.addProduct(req, res));
 
-// Actualizar Producto
 router.put("/:pid", (req, res)=> productController.updateProduct(req, res));
 
-// Borrar Producto
 router.delete("/:pid", (req, res)=> productController.deleteProduct(req, res));
 
 module.exports = router;
